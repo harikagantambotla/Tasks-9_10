@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day10-TASK</title>
+</head>
+<body>
+    <script>
+        function bandNamesSort(bandNames) {
+  function removeArticle(name) {
+    const articles = ["The", "A", "An"];
+    const words = name.split(' ');
+    if (articles.includes(words[0])) {
+      return words.slice(1).join(' ');
+    }
+    return name;
+  }
+
+  const sortedNames = bandNames.slice().sort((a, b) => removeArticle(a).localeCompare(removeArticle(b)));
+  return sortedNames;
+}
+
+// Example usage:
+const bandNames = ["The New Yardbirds", "The Beatles", "The Square Roots", "On A Friday", "An Irony"];
+const sortedBandNames = bandNamesSort(bandNames);
+console.log(sortedBandNames);
+
+    </script>
+    
+</body>
+</html>
